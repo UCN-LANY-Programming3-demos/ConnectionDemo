@@ -9,12 +9,13 @@ connStr.InitialCatalog = "ClientManager";
 connStr.Encrypt = false; // Must be false
 connStr.IntegratedSecurity = true;
 
+using TransactionScope scope = new TransactionScope();
+
 SqlConnection conn = new(connStr.ConnectionString);
 conn.Open();
 
 //SqlTransaction trans = conn.BeginTransaction();
 
-using TransactionScope scope = new TransactionScope();
 
 try
 {
